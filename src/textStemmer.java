@@ -106,13 +106,29 @@ public class textStemmer {
         System.out.println();
         System.out.println("Отчет");
         System.out.println();
-        for (
-                int i = 0;
-                i < sentencesCount; i++)
 
+        ArrayList<Integer> arr=new ArrayList<>();
+
+        for (int i = 0; i < sentencesCount; i++)
         {
-            normalizedText = normalizedText + ((HashMap.Entry<String, Integer>) sortedSentences.get(i)).getKey() + "\n";
+            for (int j=0;j<sentences.length;j++){
+                if(sentences[j].contains(((HashMap.Entry<String, Integer>) sortedSentences.get(i)).getKey())){
+                    arr.add(j);
+                }
+            }
         }
+
+        Collections.sort(arr, new
+                Comparator<Integer>() {
+                    public int compare(Integer i1, Integer i2) {
+                        return i1.compareTo(i2);
+                    }
+                });
+
+        for(int k=0;k<arr.size();k++) {
+            normalizedText = normalizedText + sentences[arr.get(k)] + "\n";
+        }
+
         return normalizedText;
     }
 

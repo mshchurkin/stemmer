@@ -5,11 +5,11 @@ public class Main {
 
     public static void main(String[] args)  {
 
-        String filePath = "check.pdf";//путь к файлу
+        String filePath = "tale.pdf";//путь к файлу
 
         List<String> stopWords=new ArrayList<>();
-        stopWords.add("коробки");//стоп слова
+        //stopWords.add("коробки");//стоп слова
 
-        System.out.println(textStemmer.stemText(textWorker.textImport(filePath),50,stopWords));
+        System.out.println(textStemmer.stemText(textWorker.textImport(filePath),5,stopWords));
     }
 }
